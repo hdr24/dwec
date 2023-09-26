@@ -1,0 +1,26 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+    const letras = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
+    let dni = parseInt(prompt("Introduzca su dni sin la letra"))
+    let letra = prompt("Introduzca la letra")
+    let letraExp = letras[dni%23]
+    
+    if (letraExp == letra) {
+        document.write("La letra introducida es la correcta")
+    } else {
+        document.write("La letra introducida no es correcta, el DNI es invalido")
+    }
+</script>
+</html>
