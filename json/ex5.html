@@ -1,0 +1,9 @@
+<script>
+    const objeto = JSON.parse('{"nombre": "Mario", "apellidos": "Sánchez López", "nacido": "26-11-1986", "curso": "DAW2", "asignatura": "DEWC", "ciudad": "El Puerto de Santa María"}'
+)
+document.write("Datos del alumno: ");
+
+Object.values(objeto).forEach(element => {
+    document.write("<br>" + element);
+});
+</script>
