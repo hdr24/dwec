@@ -17,10 +17,25 @@
 //que en el tercer párrafo haya un enlace con el texto "+ info" creado con javacript y que enlace a http://www.iesromerovargas.com/
 
 
+let tercerParrafo = document.getElementsByTagName('p')[2];
+let enlace = document.createElement("a")
+enlace.setAttribute('href', 'http://www.iesromerovargas.com/')
+enlace.appendChild(document.createTextNode(' + info'));
+tercerParrafo.appendChild(enlace);
+
 //inserta un párrafo de color rojo entre el tercer y el cuarto párrafos
+let parrafoRojo = document.createElement("p");
+let texto = document.createTextNode("Un parrafo rojo");
+parrafoRojo.appendChild(texto);
+parrafoRojo.style.color = 'red';
+document.body.insertBefore(parrafoRojo, document.getElementsByTagName('p')[3]);
 
 
-//elimina el segundo párrafo [1]	
+
+//elimina el segundo párrafo [1]
+let parrafo = document.getElementsByTagName('p')[1];
+
+parrafo.parentNode.removeChild(parrafo);
 
 
 </script>

@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ej4</title>
 </head>
+<script>
+    function anade() {
+        let texto = prompt("Elemento a añadir")
+        let nuevoNodo = document.createElement("LI");
+        let nodoTexto = document.createTextNode(texto);
+        nuevoNodo.appendChild(nodoTexto);
+        document.getElementById("lista").appendChild(nuevoNodo);
+    }
+</script>
+
 <body>
     <ul id="lista">
         <li>Lorem ipsum dolor sit amet</li>
@@ -16,4 +27,5 @@
     </ul>
     <input type="button" value="Añadir elemento" onclick="anade();">
 </body>
+
 </html>

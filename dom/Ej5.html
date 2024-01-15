@@ -6,6 +6,15 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Ej5</title>
     </head>
+    <script>
+        function enviarSaludo() {
+            let nombre = document.getElementById('nombre').value;
+            let apellido = document.getElementById('apellido').value;
+            let texto = document.createTextNode("Hola " + nombre + " " + apellido + ", gracias por completar el formulario");
+            saludo.appendChild(texto);
+            document.body.appendChild(saludo);
+        }
+    </script>
     <body>
     
     <form action="#saludo">
