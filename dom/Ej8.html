@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-	<meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Ej8</title>
-</head>      
+    <title>Ej8</title>
+</head>
+
 <body>
     <p>
         <label for="valor1">Ingrese primer valor:</label>
@@ -17,12 +19,12 @@
     </p>
     <p>
         <select id="operacion">
-        <option value="suma">Sumar</option>
-        <option value="resta">Restar</option>
+            <option value="suma">Sumar</option>
+            <option value="resta">Restar</option>
         </select>
     </p>
     <p>
-        <input type="button" value="Operar" id="calculo" />
+        <input type="button" value="Operar" id="calculo" onclick="calculo()" />
     </p>
     <p id="resultado1"></p>
     <select multiple="multiple" id="operaciones">
@@ -30,9 +32,41 @@
         <option value="resta">Restar</option>
     </select>
     <p>
-        <input type="button" value="Operar" id="calculomultiple" />
+        <input type="button" value="Operar" id="calculomultiple" onclick="calculomultiple()" />
     </p>
     <p id="resultado2"></p>
 </body>
+
+<script>
+    function calculo() {
+        let num1 = document.getElementById('valor1').value
+        let num2 = document.getElementById('valor2').value
+
+        if (document.getElementById('operacion').value == 'suma') {
+            let suma = parseInt(num1) + parseInt(num2)
+            document.getElementById('resultado1').textContent = 'La suma de los numeros es ' + suma
+        } else {
+            let resta = num1 - num2
+            document.getElementById('resultado1').textContent = ' - La resta de los numeros es ' + resta
+        }
+
+    }
+
+    function calculomultiple() {
+        let num1 = document.getElementById('valor1').value
+        let num2 = document.getElementById('valor2').value
+        let eleccion = document.getElementById('operaciones')
+        let resultado = ''
+        if (eleccion.options[0].selected) {
+            let suma = parseInt(num1) + parseInt(num2)
+            resultado += 'La suma de los numeros es ' + suma
+        }
+        if (eleccion.options[1].selected) {
+            let resta = num1 - num2
+            resultado += ' - La resta de los numeros es ' + resta
+        }
+        document.getElementById('resultado2').textContent = resultado
+    }
+</script>
 
 </html>
