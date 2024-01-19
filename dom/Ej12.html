@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 12</title>
+    <style>
+        table, td {
+            border: black 1px solid;
+        }
+        .casiprimo {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <table id="tabla"></table>
+    <input type="button" value="Seleccionar numeros casi primos" onclick="casiPrimos()">
+</body>
+<script>
+    let num = 1;
+    let tabla = document.getElementById('tabla')
+    for (let i = 0; i < 10; i++) {
+        let tr = document.createElement('tr')
+        for (let j = 0; j < 10; j++) {
+            let td = document.createElement('td')
+            td.appendChild(document.createTextNode(num))
+            tr.appendChild(td)
+            num++
+        }
+        tabla.appendChild(tr)
+    }
+
+    function casiPrimos() {
+        let numeros = document.getElementsByTagName('td')
+        for (let numero of numeros) {
+            let divisores = 0
+            for (let i = 2; i < parseInt(numero.textContent)-1; i++) {
+                if (parseInt(numero.textContent)%i === 0) {
+                    divisores++
+                }
+                
+            }
+            if (divisores == 1) {
+                numero.setAttribute('class', 'casiprimo')
+            }
+        }
+    }
+</script>
+</html>

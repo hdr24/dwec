@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 14</title>
+    <style>
+        .hidden {
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <p id="primero" onclick="desaparecer('primero')">Este es el primer parrafo</p>
+    <p id="segundo" onclick="desaparecer('segundo')">Este es el segundo parrafo</p>
+    <p id="tercero" onclick="desaparecer('tercero')">Este es el tercer parrafo</p>
+    <input type="button" value="Reaparecer" onclick="reaparecer()">
+</body>
+    <script>
+        function desaparecer(numParrafo) {
+            parrafo = document.getElementById(numParrafo)
+            if (parrafo.getAttribute('class') === 'hidden') {
+                document.body.removeChild(parrafo)
+            } else {
+                parrafo.setAttribute('class', 'hidden')
+            }
+        }
+        function reaparecer() {
+            let parrafos = document.getElementsByTagName('p')
+            for (let element of parrafos) {
+                element.setAttribute('class', '')
+            }
+        }
+    </script>
+</html>

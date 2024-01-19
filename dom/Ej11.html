@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 11</title>
+</head>
+
+<body>
+    <input type="button" value="Insertar numero" onclick="anadirNum()">
+    <ul id="numeros">
+
+    </ul>
+
+    
+</body>
+<script>
+    function anadirNum() {
+        let num = parseInt(Math.random() * 100)
+        let item = document.createElement('li')
+        item.appendChild(document.createTextNode(num))
+        document.getElementById('numeros').appendChild(item)
+    }
+
+</script>
+
+</html>

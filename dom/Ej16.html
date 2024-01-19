@@ -36,5 +36,41 @@
         <input id="compara" type="button" value="<< Comparar >>" onclick="compara()" />
         
         <div id="resultado"></div>
+
 </body>
+
+<script>
+
+    function genera() {
+        let num1 = parseInt(Math.random()*100)
+        let num2 = parseInt(Math.random()*100)
+        let parrafo1 = document.createElement('p')
+        let parrafo2 = document.createElement('p')
+        let primero = document.getElementById('primero');
+        let segundo = document.getElementById('segundo');
+
+        parrafo1.replaceChildren(document.createTextNode(num1))
+        parrafo2.replaceChildren(document.createTextNode(num2))
+        primero.replaceChildren(parrafo1);
+        segundo.replaceChildren(parrafo2);
+    }
+
+
+    function compara() {
+        let num1 = parseInt(document.getElementById('primero').textContent)
+        let num2 = parseInt(document.getElementById('segundo').textContent)
+        let parrafoVacio = document.createElement('p')
+        let textoNum1 = document.createTextNode(num1)
+        let textoNum2 = document.createTextNode(num2)
+
+
+        if (num1 > num2) {
+            document.getElementById('primero').replaceChildren(parrafoVacio)
+            document.getElementById('resultado').replaceChildren(textoNum1)
+        } else {
+            document.getElementById('segundo').replaceChildren(parrafoVacio)
+            document.getElementById('resultado').replaceChildren(textoNum2)
+        }
+    }
+</script>
 </html>
