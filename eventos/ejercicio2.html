@@ -1,0 +1,68 @@
+<!DOCTYPE html
+	PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+	<title>Ejercicio 15 - Informacion sobre eventos</title>
+	<style type="text/css">
+		body {
+			font-family: arial, helvetica;
+		}
+
+		#info {
+			width: 160px;
+			border: thin solid silver;
+			padding: .5em;
+			position: fixed;
+		}
+
+		#info h1 {
+			margin: 0;
+		}
+	</style>
+	<script>
+		function muestraInformacion(elEvento) {
+			let evento = elEvento || window.event;
+			div = document.getElementById('info')
+			h1TipoEvento = document.createElement('h1')
+			let coordenadaX = evento.clientX
+			let coordenadaY = evento.clientY
+			let relativoX = evento.screenX
+			let relativoY = evento.screenY
+			switch (evento.type) {
+				case 'mousemove':
+
+					h1TipoEvento.appendChild(document.createTextNode('Raton'))
+					div.replaceChildren(h1TipoEvento)
+					div.appendChild(document.createTextNode("Navegador: [" + coordenadaX + ", " + coordenadaY + '] Pagina: [' + relativoX + ", " + relativoY + ']'))
+					div.style.backgroundColor = 'white'
+					break;
+
+				case 'click':
+					h1TipoEvento.appendChild(document.createTextNode('Raton'))
+					div.replaceChildren(h1TipoEvento)
+					div.appendChild(document.createTextNode("Navegador: [" + coordenadaX + ", " + coordenadaY + '] Pagina: [' + relativoX + ", " + relativoY + ']'))
+					div.style.backgroundColor = '#FFFFCC'
+					break;
+
+				case 'keypress':
+					tecla = String.fromCharCode(evento.charCode);
+					h1TipoEvento.appendChild(document.createTextNode('Teclado'))
+					div.replaceChildren(h1TipoEvento)
+					div.appendChild(document.createTextNode(" Caracter : [ "+tecla+" ] CódigoTecla: [ "+evento.charCode+" ]"))
+					div.style.backgroundColor = '#CCE6FF'
+			}
+
+		}
+		document.onmousemove = muestraInformacion
+		document.onclick = muestraInformacion
+		document.onkeypress = muestraInformacion
+	</script>
+</head>
+
+<body>
+	<div id="info"></div>
+</body>
+
+</html>
