@@ -1,13 +1,10 @@
-function filtrarPlanos(planos, arrancarNave){
+let filtrarPlanos = (planos, arrancarNave) =>{
    
-    let filtro= planos.filter(function(plano){
-         return(plano>=1 && plano<=10)
- 
-     })
+    let filtro= planos.filter(let=(plano)=>(plano>=1 && plano<=10))
      arrancarNave(filtro)
  }
  let planos=[1,100,200,400,500]
- filtrarPlanos(planos, function(filtro){
+ filtrarPlanos(planos, let = (filtro) =>{
      let cuenta=filtro.length
      
  

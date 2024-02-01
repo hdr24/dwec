@@ -5,7 +5,7 @@
 // salario mensual de un vendedor dado;
 
 
-function Calcular(salarioMensual,comision,lecenciaVendida,totalSalario,totalcomisiones){
+let Calcular = (salarioMensual,comision,lecenciaVendida,totalSalario,totalcomisiones) => {
     salarioMensual=3500000
     comision=1500000
     lecenciaVendida=4
