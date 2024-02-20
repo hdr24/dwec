@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+<body>
+    
+    <script>
+        fetch('https://randomuser.me/api/')
+                        .then(response => response.json())
+                        .then(data => {
+                                const resultado = data.results
+                                document.write('Nombre recuperados: ')
+                                resultado.forEach(element => {
+                                        document.write(element['name']['first'] + ' ')
+                                        document.write(element['name']['last'])
+                                        document.write('<br>')
+                                        if (element['gender'] == 'male') {
+                                            document.write('<img width="100px" height="100px" alt="hombre" src="img/hombre.jpg">')
+                                        } else {
+                                            document.write('<img width="100px" height="100px" alt="mujer" src="img/mujer.jpg">')
+                                        }
+                                });
+                        })
+                        .catch(error => console.log('Solicitud fallida', error));
+                        
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio </title>
+</head>
+
+<body>
+    <script>
+        fetch('https://apis.datos.gob.ar/georef/api/provincias')
+            .then(response => response.json())
+            .then(data => {
+                const resultado = data.provincias
+                document.write('<h1>Provincias Argentinas</h1>')
+                resultado.forEach(element => {
+                    document.write('<h2>' + element['nombre'] + '</h2>')
+                    document.write('<p> ID:' + element['id'] + '</p>')
+                    document.write('<p> Centroide: </p>')
+                    document.write('<ul><li> Latitud: ' + element['centroide']['lat'] + '</li>')
+                    document.write('<li> Longitud: ' + element['centroide']['lon'] + '</li></ul>')
+                });
+            })
+            .catch(error => console.log('Solicitud fallida', error)); 
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+
+    <form id="myForm">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" min="1" max="10" required>
+        <br>
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function (event) {
+            event.preventDefault(); 
+
+            const formData = new URLSearchParams(new FormData(this));
+
+            id = (formData.get('id'))
+
+
+            fetch('https://jsonplaceholder.typicode.com/users?id=' + id)
+                .then(response => response.json())
+                .then(data => {
+                    document.write('<h1>Usuario</h1>')
+                    data.forEach(element => {
+                        document.write('<h2>' + element['name'] + '</h2>')
+                        document.write('<p> ID:' + element['id'] + '</p>')
+                        document.write('<p> Username: ' + element['username'] + '</p>')
+                        document.write('<p> Email: ' + element['email'] + '</p>')
+                        document.write('<p> Address: </p>')
+                        document.write('<ul><li> Street: ' + element['address']['street'] + '</li>')
+                        document.write('<li> Suite: ' + element['address']['suite'] + '</li>')
+                        document.write('<li> Zipcode: ' + element['address']['zipcode'] + '</li>')
+                        document.write('<li> City: ' + element['address']['city'] + '</li>')
+                        document.write('<li> Geo: </li>')
+                        document.write('<ul><li> Latitud: ' + element['address']['geo']['lat'] + '</li>')
+                        document.write('<li> Longitud: ' + element['address']['geo']['lng'] + '</li></ul></ul>')
+                        document.write('<p> Phone: ' + element['phone'] + '</p>')
+                        document.write('<p> Web: ' + element['website'] + '</p>')
+                        document.write('<p> Company: </p>')
+                        document.write('<ul><li> Company name: ' + element['company']['name'] + '</li>')
+                        document.write('<li> Catchphrase: ' + element['company']['catchphrase'] + '</li>')
+                        document.write('<li> Bs: ' + element['company']['bs'] + '</li></ul>')
+                    });
+                })
+                .catch(error => console.log('Solicitud fallida', error));
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 3</title>
+</head>
+<body>
+    <script>
+        fetch('https://freegeoip.app/json/81.40.155.20')
+            .then(response => response.json())
+            .then(data => {
+                document.write('<h1>IP</h1>')
+                data.forEach(element => {
+                    document.write('<h2>' + element['ip'] + '</h2>')
+                    document.write('<p> Nombre del país:' + element['country_name'] + '</p>')
+                    document.write('<p> Ciudad:' + element['city'] + '</p>')
+                });
+            })
+            .catch(error => console.log('Solicitud fallida', error)); 
+    </script>
+</body>
+</html>
