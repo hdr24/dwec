@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+</head>
+<body>
+    <script>
+        let params = []
+        let entrada = true
+
+        while (entrada) {
+            let valor = prompt('Introduzca parametros (introduzca "parar" para terminar)')
+            if (valor === 'parar') {
+                entrada = false
+            } else {
+            params.push(valor)
+            }
+        }
+
+        document.write('El numero de parametros introducidos es: ' + params.length)
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5</title>
+</head>
+
+<body>
+    <script>
+        const numBinario = (num) => {
+            let bin = '';
+
+            while (num > 0) {
+                let digito = num % 2;
+
+                bin = digito + bin;
+                num = parseInt(num / 2);
+            }
+
+            return bin || '0';
+        }
+        let num = prompt('Inserte un numero')
+        document.write(numBinario(num))
+    </script>
+
+</body>
+
+</html>

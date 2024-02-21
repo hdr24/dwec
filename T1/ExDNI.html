@@ -10,8 +10,19 @@
 </body>
 
 <script>
-    const letras = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
-    let dni = parseInt(prompt("Introduzca su dni sin la letra"))
-    document.write("<p>La letra de tu dni es: " + letras[dni%23]+"</p>")
+    let letraDNI = (dni) => {
+        const letras = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"];
+        let dni = parseInt(prompt("Introduzca su dni sin la letra"))
+        if (dni.length != 8 ) {
+            return 'DNI Erroneo'
+        } else {
+        return letras[dni%23]
+        }
+    }
+
+    document.write(letraDNI())
+    
+    
+    
 </script>
 </html>

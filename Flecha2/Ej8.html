@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8</title>
+</head>
+
+<body>
+    <script>
+
+
+        let calculaEmpleados = () => {
+
+            let empleados = []
+            nomMax = ''
+            sueldoMax = 0
+
+            for (let i = 0; i < 8; i++) {
+                let nombre = prompt('Introduzca el nombre del empleado')
+                let sueldo = parseInt(prompt('Introduzca el sueldo del empleado'))
+
+                let obj = { nombre: nombre, sueldo: sueldo }
+                empleados.push(obj)
+            }
+
+            empleados.forEach(empleado => {
+
+                if (empleado['sueldo'] > sueldoMax) {
+                    nomMax = empleado['nombre']
+                    sueldoMax = empleado['sueldo']
+                }
+            });
+            return sueldoMax + " " + nomMax;
+        }
+
+        document.write(calculaEmpleados())
+
+    </script>
+</body>
+
+</html>
