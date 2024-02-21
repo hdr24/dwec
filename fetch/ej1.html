@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ejercicio 1</title>
+</head>
+
+<body>
+        <script>
+                fetch('https://swapi.dev/api/people/')
+                        .then(response => response.json())
+                        .then(data => {
+                                const resultado = data.results
+                                document.write('Nombres recuperados<br>')
+                                resultado.forEach(element => {
+                                        document.write(element['name'] + '<br>')
+                                });
+                        })
+                        .catch(error => console.log('Solicitud fallida', error)); 
+        </script>
+</body>
+
+</html>

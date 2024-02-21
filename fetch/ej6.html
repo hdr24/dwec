@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6</title>
+    <style>
+        table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #d3d3d3;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Formulario inservible, no se pueden editar archivos locales desde JavaScript -->
+    <form method="get" id="formulario">
+        <label>
+            Descripcion 
+            <input type="text" name="desc">
+        </label>
+        <label>
+             Precio
+            <input type="number" name="precio">
+        </label>
+        <label>
+            ID 
+            <input type="number" name="id" id="id">
+        </label>
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        fetch('http://localhost:3000/articulos')
+            .then(response => response.json())
+            .then(data => {
+                let tablehtml ="<table style='border: 1px solid'><tr><th>ID</th><th>Descripción</th><th>Precio</th></tr > "
+                data.forEach(element => {
+                    tablehtml +='<tr><td>' + element['codigo'] + '</td>'
+                    tablehtml +='<td>' + element['descripcion'] + '</td>'
+                    tablehtml +='<td>' + element['precio'] + '</td></tr>'
+                }
+                   
+                );
+                tablehtml += '</table>'
+                document.body.innerHTML += tablehtml
+            })
+            .catch(error => console.log('Solicitud fallida', error));
+
+    </script>
+    
+</body>
+
+</html>
