@@ -1,0 +1,7 @@
+.card {
+    width: 70%;
+    min-height: 600px;
+    margin: 10px auto 10px auto;
+    border: peru solid 5px;
+    padding: 10px;
+}

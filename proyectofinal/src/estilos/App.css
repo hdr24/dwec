@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "Minecraft";
+    src: url("../data/fonts/MinecraftRegular-Bmg3.otf") format("truetype");
+  }
+
+body {
+    background-image: url('../images/dirt.jpg');
+    font-family: Minecraft, sans-serif;
+}
+
+.loading>img {
+    width: 30%;
+    height: 30%;
+    margin: 10% auto;
+    display: block;
+}
+
+.container {
+    margin-top: 10%;
+    position: relative;
+    border: black 4px solid;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+li {
+    list-style-type: none;
+}
+
+@media (max-width: 768px) {
+    .container {
+        margin-top: 20%;
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+        margin-bottom: 40%;
+    }
+    .loading>img {
+        width: 50%;
+        height: 50%;
+        margin: 20% auto auto auto;
+        display: block;
+    }
+}
+
